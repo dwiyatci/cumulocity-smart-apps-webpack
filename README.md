@@ -4,9 +4,9 @@
 [![downloads](https://img.shields.io/npm/dt/cumulocity-smart-apps-webpack.svg)](http://npm-stat.com/charts.html?package=cumulocity-smart-apps-webpack)
 [![WTFPL License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-smart-apps-webpack/master/LICENSE.txt)
 
-A boilerplate to conveniently start creating your Cumulocity smart app and to improve development experience with webpack 2.x.
+A boilerplate to conveniently start creating Cumulocity smart app and to improve development experience with webpack 2.x.
 
-### ATTENTION: Cumulocity Smart Apps Toolkit is currently in legacy mode as it is based on the old release of UI core JS API (6.3.x). That said, you may still use it and it's up to you to decide whether it works and still well-suited for your particular app.
+## ATTENTION: Cumulocity Smart Apps Toolkit is currently in legacy mode as it is based on the old release of UI core JS API (6.3.x). That said, you may still use it and it's up to you to decide whether it works and still well-suited for your particular app.
  
 ### Why?
 I would like to enhance [the current boilerplate](https://bitbucket.org/m2m/cumulocity-examples/src/fa8077ade64ddb74100296742e739daa258ae9b3/hello-core-api/?at=default) for creating a smart app in order to be able to:
