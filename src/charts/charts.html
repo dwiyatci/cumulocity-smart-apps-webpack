@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="row m-b-2">
+      <div class="col-md-12">
+        <button class="btn btn-primary pull-right" ng-click="vm.getMeasurement()">Refresh</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel c8y p-a-2">
+          <h2>Radial Gauge</h2>
+          <div c8y-radial-gauge dp="vm.datapoint" measurement="vm.measurement"></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel c8y p-a-2">
+          <h2>Linear Gauge</h2>
+          <c8y-linear-gauge dp="vm.datapoint" measurement="vm.measurement"></c8y-linear-gauge>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <div class="form-group">
+        <label>
+          Device ID
+          <input class="form-control" ng-model="vm.source" placeholder="Device ID" required>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Fragment
+          <input class="form-control" ng-model="vm.fragmentType" placeholder="Fragment" required>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Series
+          <input class="form-control" ng-model="vm.series" placeholder="Series" required>
+        </label>
+      </div>
+    </form>
+    <xx-datapoint value="vm.datapoint" measurement="vm.measurement"></xx-datapoint>
+  </div>
+</div>

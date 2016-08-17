@@ -1,0 +1,28 @@
+<div>
+  <xx-section-main
+      template-name="{{vm.service}}"
+      controller-name="{{vm.service + 'Controller' | upperFirst}}"
+      filter="vm.filter"
+      refresh="vm.refresh"
+  >
+  </xx-section-main>
+  <p class="text-warning m-t-2">
+    Page size is {{vm.filter.pageSize}} by default. See
+    <code>pageSize</code> filter.
+  </p>
+  <table class="table">
+    <h2>List</h2>
+    <tr
+        c8y-repeat="x in {{vm.service}}"
+        filter="vm.filter"
+        refresh="vm.refresh"
+        realtime="true"
+    >
+      <td>{{x.id}}</td>
+      <td>{{x.type}}</td>
+      <td>{{x.text}}</td>
+      <td>{{x.name}}</td>
+      <td>{{x.severity}}</td>
+    </tr>
+  </table>
+</div>
