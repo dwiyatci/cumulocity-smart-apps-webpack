@@ -19,7 +19,7 @@ I would like to enhance [the current boilerplate](https://bitbucket.org/m2m/cumu
 
 *Unfortunately there are some package dependencies which are only available in Bower, including [the toolkit](https://bower.io/search/?q=cumulocity-clients-javascript) itself. So, I cannot migrate 'em all completely to npm. :disappointed:
 
-## Installation
+## Usage
 - Install Node.js and npm from its [website](https://nodejs.org), or even better: use [nvm](https://github.com/creationix/nvm).
 
 - Checkout the repo, `cd` to project directory, and setup dependencies:
