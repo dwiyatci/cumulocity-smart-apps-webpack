@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/npm/v/cumulocity-smart-apps-webpack.svg)](https://www.npmjs.com/package/cumulocity-smart-apps-webpack)
 [![downloads](https://img.shields.io/npm/dt/cumulocity-smart-apps-webpack.svg)](http://npm-stat.com/charts.html?package=cumulocity-smart-apps-webpack)
-[![WTFPL License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-smart-apps-webpack/master/LICENSE.txt)
+[![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-smart-apps-webpack/master/LICENSE.txt)
 
 A boilerplate to conveniently start creating Cumulocity smart app and to improve development experience with webpack 2.x.
 
