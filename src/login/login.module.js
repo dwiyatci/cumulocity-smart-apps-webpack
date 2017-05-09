@@ -1,12 +1,9 @@
 /**
- * Created by glenn on 11.08.16.
+ * Created by glenn on 09.05.17.
  */
 
-import angular from 'angular';
-
-import './login.css';
-import LoginController from './login.controller';
+import loginComponent from './login.component';
 
 export default angular
   .module('app.login', [])
-  .controller('LoginController', LoginController);
+  .component('csaLogin', loginComponent);

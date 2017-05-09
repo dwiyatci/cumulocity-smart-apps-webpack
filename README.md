@@ -4,9 +4,9 @@
 [![downloads](https://img.shields.io/npm/dt/cumulocity-smart-apps-webpack.svg)](http://npm-stat.com/charts.html?package=cumulocity-smart-apps-webpack)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-smart-apps-webpack/master/LICENSE.txt)
 
-A boilerplate to conveniently start creating Cumulocity smart app and to improve development experience with webpack 2.x.
+A boilerplate to conveniently start creating Cumulocity smart apps and to improve development experience with webpack 2.x.
 
-## ATTENTION: Cumulocity Smart Apps Toolkit is currently in legacy mode as it is based on the old release of UI core JS API (6.3.x). That said, you may still use it and it's up to you to decide whether it works and still well-suited for your particular app.
+## ~~ATTENTION: Cumulocity Smart Apps Toolkit is currently in legacy mode as it is based on the old release of UI core JS API (6.3.x). That said, you may still use it and it's up to you to decide whether it works and still well-suited for your particular app.~~ Cumulocity Smart Apps Toolkit a.k.a. [cumulocity-clients-javascript](https://github.com/Cumulocity/cumulocity-clients-javascript) seems to be brought back to life (8.x). It's kinda form of [necromancy](http://www.urbandictionary.com/define.php?term=Necromancy) but I'd still recommend you to [develop plugins](http://cumulocity.com/guides/web/introduction/) as it offers more out-of-the-box features and more convenient for newbs.
  
 ### Why?
 I would like to enhance [the current boilerplate](https://bitbucket.org/m2m/cumulocity-examples/src/fa8077ade64ddb74100296742e739daa258ae9b3/hello-core-api/?at=default) for creating a smart app in order to be able to:
@@ -14,10 +14,10 @@ I would like to enhance [the current boilerplate](https://bitbucket.org/m2m/cumu
 - leverage package managing and bundling process by getting rid of Bower* and Grunt in favour of npm and webpack.
 - showcase the usage of ES6+ in my code in conjunction with AngularJS.
 - use npm (scripts) as a build tool.
-- improve developer experience with Hot Module Replacement (HMR) capability of webpack-dev-server 2.x.
-- stop repeating the hustle of creating a fiddle of Cumulocity smart app when I'm doing support for the guys who are still using the toolkit (yes, **you**! :yum:).
+- improve developer experience with Hot Module Replacement (HMR) capability and Tree Shaking of webpack-dev-server 2.x.
+- stop repeating the hustle of creating a fiddle of Cumulocity smart apps when I'm doing support for the guys who are still using the toolkit (yes, **you**! :yum:).
 
-*Unfortunately there are some package dependencies which are only available in Bower, including [the toolkit](https://bower.io/search/?q=cumulocity-clients-javascript) itself. So, I cannot migrate 'em all completely to npm. :disappointed:
+*~~Unfortunately there are some package dependencies which are only available in Bower, including [the toolkit](https://bower.io/search/?q=cumulocity-clients-javascript) itself. So, I cannot migrate 'em all completely to npm. :disappointed:~~
 
 ## Usage
 - Install Node.js and npm from its [website](https://nodejs.org), or even better: use [nvm](https://github.com/creationix/nvm).
@@ -31,7 +31,7 @@ $ npm run install:clean
 ```bash
 $ npm start
 ```
-You'll find the Cumulocity smart app running on http://localhost:8080/.
+You'll find the Cumulocity smart app running on https://localhost:8080/.
 
 * For production, build frontend static assets:
 ```bash

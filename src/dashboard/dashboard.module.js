@@ -1,12 +1,21 @@
 /**
- * Created by glenn on 11.08.16.
+ * Created by glenn on 09.05.17.
  */
 
-import angular from 'angular';
-
-import './dashboard.css';
-import DashboardController from './dashboard.controller';
+import dashboardComponent from './dashboard.component';
+import sectionComponent from './section.component';
+import alarmsComponent from './alarms.component';
+import devicesComponent from './devices.component';
+import eventsComponent from './events.component';
+import chartsComponent from './charts.component';
+import datapointComponent from './datapoint.component';
 
 export default angular
   .module('app.dashboard', [])
-  .controller('DashboardController', DashboardController);
+  .component('csaDashboard', dashboardComponent)
+  .component('csaSection', sectionComponent)
+  .component('csaAlarms', alarmsComponent)
+  .component('csaDevices', devicesComponent)
+  .component('csaEvents', eventsComponent)
+  .component('csaCharts', chartsComponent)
+  .component('csaDatapoint', datapointComponent);

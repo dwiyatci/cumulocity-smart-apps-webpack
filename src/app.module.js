@@ -1,49 +1,29 @@
 /**
- * Created by glenn on 8/5/16.
+ * Created by glenn on 05.08.16.
  */
 
-import angular from 'angular';
-
-import coreModule from './core/core.module';
-import componentsModule from './components/components.module';
+import configure from './app.config';
+import configureRoute from './app.route';
 import loginModule from './login/login.module';
 import dashboardModule from './dashboard/dashboard.module';
-import devicesModule from './devices/devices.module';
-import alarmsModule from './alarms/alarms.module';
-import eventsModule from './events/events.module';
-import chartsModule from './charts/charts.module';
-import fiddleModule from './fiddle/fiddle.module';
+import fiddleComponent from './fiddle.component';
 
 export default angular
   .module('app', [
-
-    /*
-     * Order is not important. Angular makes a
-     * pass to register all of the modules listed
-     * and then when app.dashboard tries to use app.data,
-     * its components are available.
+    /**
+     * Cumulocity UI core API modules (8.x).
+     * @see http://resources.cumulocity.com/documentation/jssdk/latest/#/api
      */
+    'c8y.sdk',
 
-    /*
-     * Everybody has access to these.
-     * We could place these under every feature area,
-     * but this is easier to maintain.
-     */
-    coreModule.name,
-    componentsModule.name,
+    // 3rd-party modules.
+    'ngRoute',
+    'ui.bootstrap',
 
-    /*
-     * Feature areas
-     */
+    // Feature areas.
     loginModule.name,
     dashboardModule.name,
-    devicesModule.name,
-    alarmsModule.name,
-    eventsModule.name,
-    chartsModule.name,
-
-    /*
-     * Playground
-     */
-    fiddleModule.name,
-  ]);
+  ])
+  .config(configure)
+  .config(configureRoute)
+  .component('csaFiddle', fiddleComponent);
