@@ -2,6 +2,8 @@
  * Created by glenn on 09.05.17.
  */
 
+/* global angular:true */
+
 import dashboardComponent from './dashboard.component';
 import sectionComponent from './section.component';
 import alarmsComponent from './alarms.component';

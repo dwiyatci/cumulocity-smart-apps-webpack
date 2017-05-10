@@ -2,6 +2,8 @@
  * Created by glenn on 07.05.17.
  */
 
+/* global _:true */
+
 import './login.css';
 
 const loginComponent = {
@@ -21,11 +23,11 @@ const loginComponent = {
         <button
           class="btn btn-lg btn-primary btn-block"
           c8y-login
-          data-tenant="vm.tenant"
-          data-user="vm.username"
-          data-password="vm.password"
-          data-remember-me="vm.rememberMe"
-          on-success="vm.onSuccess()"
+          tenant="vm.tenant"
+          user="vm.username"
+          password="vm.password"
+          remember-me="vm.rememberMe"
+          on-success="vm.redirectToDashboard()"
         >
           Sign in
         </button>
@@ -38,24 +40,23 @@ const loginComponent = {
 
 /* @ngInject */
 function Controller(
+  $rootScope,
   $location,
-  c8yUser
 ) {
   const vm = this;
 
   _.assign(vm, {
-    onSuccess,
+    redirectToDashboard,
     $onInit: onInit,
   });
 
-  ////////////
-
   function onInit() {
-    c8yUser.current()
-      .then(onSuccess);
+    if ($rootScope.loggedIn) {
+      redirectToDashboard();
+    }
   }
 
-  function onSuccess() {
+  function redirectToDashboard() {
     $location.path('/');
   }
 }

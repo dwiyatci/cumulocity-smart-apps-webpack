@@ -62,7 +62,7 @@ const config = {
               plugins: ['transform-runtime', 'angularjs-annotate'],
             },
           },
-        ]
+        ],
       },
       {
         test: /\.css$/,

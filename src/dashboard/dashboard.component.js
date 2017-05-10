@@ -2,6 +2,8 @@
  * Created by glenn on 07.05.17.
  */
 
+/* global _:true */
+
 import './dashboard.css';
 
 const dashboardComponent = {
@@ -26,7 +28,7 @@ const dashboardComponent = {
           </div>
           <div id="navbar" class="navbar-collapse" collapse="vm.isCollapsed">
             <ul class="nav navbar-nav navbar-right">
-              <li><a c8y-logout ng-click="vm.logout()">Logout</a></li>
+              <li><a class="btn btn-link" c8y-logout ng-click="vm.logout()">Logout</a></li>
             </ul>
             <p class="navbar-text navbar-right">Hello {{vm.c8y.user.firstName}}</p>
           </div>
@@ -58,9 +60,11 @@ const dashboardComponent = {
 
 /* @ngInject */
 function Controller(
-  $location,
   $routeParams,
-  c8yUser
+  $rootScope,
+  $location,
+  c8yAuth,
+  c8yUser,
 ) {
   const vm = this;
 
@@ -74,10 +78,18 @@ function Controller(
 
   ////////////
 
-  function onInit() {
-    c8yUser.current()
-      .then(user => _.set(vm, 'c8y.user', user))
-      .catch(redirectToLogin);
+  async function onInit() {
+    $rootScope.$on('authStateChange',
+      (evt, { hasAuth }) => ($rootScope.loggedIn = hasAuth));
+
+    c8yAuth.initializing.then(async () => {
+      if ($rootScope.loggedIn) {
+        _.set(vm, 'c8y.user', await c8yUser.current());
+        $rootScope.$apply();
+      } else {
+        redirectToLogin();
+      }
+    });
   }
 
   function redirectToLogin() {

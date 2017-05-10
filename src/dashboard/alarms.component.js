@@ -2,6 +2,8 @@
  * Created by glenn on 07.05.17.
  */
 
+/* global _:true */
+
 const alarmsComponent = {
   template: `
     <div class="btn-group alarm-severity csa-alarms">

@@ -2,6 +2,8 @@
  * Created by glenn on 07.05.17.
  */
 
+/* global _:true */
+
 const sectionComponent = {
   template: `
     <div class="csa-section">
@@ -39,7 +41,7 @@ const sectionComponent = {
 
 /* @ngInject */
 function Controller(
-  $scope
+  $scope,
 ) {
   const vm = this;
 

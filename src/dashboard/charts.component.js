@@ -2,6 +2,8 @@
  * Created by glenn on 07.05.17.
  */
 
+/* global _:true */
+
 const chartsComponent = {
   template: `
     <div class="row csa-charts">
@@ -78,7 +80,7 @@ const chartsComponent = {
 /* @ngInject */
 function Controller(
   c8yBase,
-  c8yMeasurements
+  c8yMeasurements,
 ) {
   const vm = this;
 

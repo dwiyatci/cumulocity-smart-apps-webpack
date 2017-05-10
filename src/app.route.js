@@ -4,12 +4,11 @@
 
 /* @ngInject */
 function configureRoute(
-  $routeProvider
+  $routeProvider,
 ) {
   $routeProvider
     .when('/login', { template: '<csa-login />' })
     .when('/fiddle', { template: '<csa-fiddle />' })
-    .when('/', { template: '<csa-dashboard />' })
     .when('/:section?', { template: '<csa-dashboard />' });
 }
 
