@@ -8,7 +8,7 @@ import './login.css';
 
 const loginComponent = {
   template: `
-    <div class="container">
+    <div class="container" ng-if="!$root.loggedIn">
       <form class="form-signin">
         <h2 class="form-signin-heading">Please login</h2>
         <label for="inputTenant" class="sr-only">Tenant</label>
@@ -41,7 +41,6 @@ const loginComponent = {
 /* @ngInject */
 function Controller(
   $rootScope,
-  $location,
 ) {
   const vm = this;
 
@@ -57,7 +56,7 @@ function Controller(
   }
 
   function redirectToDashboard() {
-    $location.path('/');
+    window.location.href = '/';
   }
 }
 

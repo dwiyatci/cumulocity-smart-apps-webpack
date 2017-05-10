@@ -78,9 +78,11 @@ function Controller(
 
   ////////////
 
-  async function onInit() {
-    $rootScope.$on('authStateChange',
-      (evt, { hasAuth }) => ($rootScope.loggedIn = hasAuth));
+  function onInit() {
+    $rootScope.$on(
+      'authStateChange',
+      (e, { hasAuth }) => ($rootScope.loggedIn = hasAuth),
+    );
 
     c8yAuth.initializing.then(async () => {
       if ($rootScope.loggedIn) {

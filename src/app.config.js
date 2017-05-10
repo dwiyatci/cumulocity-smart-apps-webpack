@@ -6,7 +6,7 @@
 function configure(
   c8yCumulocityProvider,
 ) {
-  c8yCumulocityProvider.setAppKey('csa-application-key');
+  c8yCumulocityProvider.setAppKey('core-application-key');
   c8yCumulocityProvider.setBaseUrl('https://demos.cumulocity.com/');
 }
 
