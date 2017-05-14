@@ -39,7 +39,7 @@ You'll find the CSA instansce running on https://localhost:8080.
 ```bash
 $ npm run build
 ```
-Simply drop all files under `dist` directory to your production server.
+Simply drop all files under `assets` directory to your production server.
 
 ## Author
 Glenn Dwiyatcita ([@dwiyatci](http://tiny.cc/dwiyatci))
