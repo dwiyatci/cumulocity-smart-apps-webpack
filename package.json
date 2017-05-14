@@ -1,14 +1,14 @@
 {
   "name": "cumulocity-smart-apps-webpack",
   "version": "2.0.0",
-  "description": "A boilerplate for creating Cumulocity smart app using webpack-dev-server 2.x",
+  "description": "A boilerplate for creating Cumulocity Smart Apps instance using webpack-dev-server 2.x",
   "keywords": [
     "cumulocity",
     "m2m",
     "examples",
     "demo",
     "boilerplate",
-    "cumulocity smart app",
+    "cumulocity smart apps",
     "cumulocity webpack",
     "cumulocity toolkit"
   ],
