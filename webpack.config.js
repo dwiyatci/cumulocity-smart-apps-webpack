@@ -2,7 +2,6 @@
  * Created by glenn on 07.05.17.
  */
 
-const { compact } = require('lodash');
 const { resolve } = require('path');
 
 const webpack = require('webpack');
@@ -10,17 +9,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
-const prodEnabled = process.env.NODE_ENV === 'production';
 const config = {
   entry: {
     app: './src/app.js',
     vendor: [
-      /*
+      /**
        * Cumulocity UI core SDK (8.x).
        */
       'cumulocity-clients-javascript/build/main-standalone.js',
 
-      /*
+      /**
        * Other vendor dependencies for this amazing project.
        */
       'bootstrap-loader',
@@ -33,7 +31,7 @@ const config = {
     ],
   },
   output: {
-    filename: prodEnabled ? '[name].[chunkhash].js' : '[name].js',
+    filename: ifProd('[name].[chunkhash].js', '[name].js'),
     path: resolve(__dirname, 'assets'),
     publicPath: '/',
   },
@@ -45,7 +43,7 @@ const config = {
       },
       // Bootstrap 3
       {
-        test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+        test: /bootstrap-sass\/assets\/javascripts\//,
         use: 'imports-loader?jQuery=>window.jQuery',
       },
       {
@@ -92,9 +90,9 @@ const config = {
       },
     ],
   },
-  plugins: compact([
+  plugins: [
     // Code Splitting - CSS
-    new ExtractTextPlugin(prodEnabled ? '[name].[chunkhash].css' : '[name].css'),
+    new ExtractTextPlugin(ifProd('[name].[chunkhash].css', '[name].css')),
 
     // Code Splitting - Libraries
     new webpack.optimize.CommonsChunkPlugin({
@@ -106,18 +104,25 @@ const config = {
       minChunks: Infinity,
     }),
 
-    // Building for Production
-    prodEnabled && new webpack.LoaderOptionsPlugin({ minimize: true }),
-    prodEnabled && new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-
     // Caching
     new HtmlWebpackPlugin({ template: './src/index.ejs' }),
     new InlineManifestWebpackPlugin({ name: 'webpackManifest' }),
 
-    // HMR
-    !prodEnabled && new webpack.HotModuleReplacementPlugin(),
-  ]),
-  devtool: prodEnabled ? 'source-map' : 'eval',
+    ...ifProd(
+      [
+        // Building for Production
+        new webpack.LoaderOptionsPlugin({ minimize: true }),
+        new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+      ],
+      [
+        new webpack.NoEmitOnErrorsPlugin(),
+
+        // HMR
+        new webpack.HotModuleReplacementPlugin(),
+      ]
+    ),
+  ],
+  devtool: ifProd('source-map', 'eval'),
   resolve: {
     modules: [
       'node_modules',
@@ -133,5 +138,9 @@ const config = {
     https: true,
   },
 };
+
+function ifProd(prodStuff, devStuff) {
+  return (process.env.NODE_ENV === 'production') ? prodStuff : devStuff;
+}
 
 module.exports = config;

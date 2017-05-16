@@ -33,7 +33,7 @@
     "angular-ui-bootstrap": "2.2.0",
     "babel-polyfill": "6.23.0",
     "bootstrap-sass": "3.3.7",
-    "cumulocity-clients-javascript": "https://github.com/Cumulocity/cumulocity-clients-javascript"
+    "cumulocity-clients-javascript": "https://github.com/dwiyatci/cumulocity-clients-javascript"
   },
   "devDependencies": {
     "babel-core": "6.24.1",
