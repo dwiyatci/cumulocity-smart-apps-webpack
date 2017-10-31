@@ -1,6 +1,6 @@
 {
   "name": "cumulocity-smart-apps-webpack",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "A boilerplate for creating Cumulocity Smart Apps instance using webpack-dev-server 2.x",
   "keywords": [
     "cumulocity",
