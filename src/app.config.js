@@ -3,11 +3,9 @@
  */
 
 /* @ngInject */
-function configure(
-  c8yCumulocityProvider,
-) {
+function configure(c8yCumulocityProvider) {
   c8yCumulocityProvider.setAppKey('core-application-key');
-  c8yCumulocityProvider.setBaseUrl('https://demos.cumulocity.com/');
+  c8yCumulocityProvider.setBaseUrl('https://developer.cumulocity.com/');
 }
 
 export default configure;

@@ -2,7 +2,7 @@
  * Created by glenn on 07.05.17.
  */
 
-/* global _:true */
+/* global _ */
 
 import './login.css';
 
@@ -39,17 +39,15 @@ const loginComponent = {
 };
 
 /* @ngInject */
-function Controller(
-  $rootScope,
-) {
+function Controller($rootScope) {
   const vm = this;
 
   _.assign(vm, {
+    $onInit,
     redirectToDashboard,
-    $onInit: onInit,
   });
 
-  function onInit() {
+  function $onInit() {
     if ($rootScope.loggedIn) {
       redirectToDashboard();
     }

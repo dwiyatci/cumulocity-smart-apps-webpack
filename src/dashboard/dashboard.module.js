@@ -2,7 +2,7 @@
  * Created by glenn on 09.05.17.
  */
 
-/* global angular:true */
+/* global angular */
 
 import dashboardComponent from './dashboard.component';
 import sectionComponent from './section.component';

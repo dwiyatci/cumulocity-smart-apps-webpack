@@ -1,5 +1,6 @@
 /**
  * Created by glenn on 07.05.17.
+ * Last updated on 31.10.17.
  */
 
 const { resolve } = require('path');
@@ -52,21 +53,24 @@ const config = {
           resolve(__dirname, 'src'),
         ],
         use: [
-          //{ loader: 'ng-annotate-loader' },
           {
+            // https://webpack.js.org/loaders/babel-loader
             loader: 'babel-loader',
             options: {
-              presets: [['env', { modules: false }]],
-              plugins: ['transform-runtime', 'angularjs-annotate'],
+              presets: ['env'],
+              plugins: [
+                'transform-runtime',
+                'babel-plugin-transform-object-rest-spread',
+                'angularjs-annotate',
+              ],
+              cacheDirectory: true,
             },
           },
         ],
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader',
-        }),
+        use: ExtractTextPlugin.extract({ use: 'css-loader' }),
       },
       {
         test: /\.json$/,
@@ -96,22 +100,23 @@ const config = {
 
     // Code Splitting - Libraries
     new webpack.optimize.CommonsChunkPlugin({
+      // https://stackoverflow.com/q/39548175/2013891
+      // The order of this array matters.
       names: [
         'polyfills',
         'vendor',
         'manifest',
       ],
-      minChunks: Infinity,
     }),
 
     // Caching
     new HtmlWebpackPlugin({ template: './src/index.ejs' }),
-    new InlineManifestWebpackPlugin({ name: 'webpackManifest' }),
+    new InlineManifestWebpackPlugin(),
 
     ...ifProd(
       [
         // Building for Production
-        new webpack.LoaderOptionsPlugin({ minimize: true }),
+        // new webpack.LoaderOptionsPlugin({ minimize: true }), - not needed anymore?
         new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
       ],
       [
@@ -121,6 +126,9 @@ const config = {
         new webpack.HotModuleReplacementPlugin(),
       ]
     ),
+
+    // Scope hoisting
+    new webpack.optimize.ModuleConcatenationPlugin(),
   ],
   devtool: ifProd('source-map', 'eval'),
   resolve: {

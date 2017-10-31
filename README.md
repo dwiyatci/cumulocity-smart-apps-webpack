@@ -4,7 +4,7 @@
 [![downloads](https://img.shields.io/npm/dt/cumulocity-smart-apps-webpack.svg)](http://npm-stat.com/charts.html?package=cumulocity-smart-apps-webpack)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/dwiyatci/cumulocity-smart-apps-webpack/master/LICENSE.txt)
 
-A boilerplate to conveniently start creating Cumulocity Smart Apps instance and to improve development experience with webpack 2.x.
+A boilerplate to conveniently start creating Cumulocity Smart Apps instance and to improve development experience with webpack 3.x.
 
 ![Screenshot](screenshot.png)
 
@@ -16,7 +16,7 @@ I would like to enhance [the current boilerplate](https://bitbucket.org/m2m/cumu
 - leverage package managing and bundling process by getting rid of Bower* and Grunt in favour of npm and webpack.
 - showcase the usage of ES6+ in my code in conjunction with AngularJS.
 - use npm (scripts) as a build tool.
-- improve developer experience with Hot Module Replacement (HMR) capability and Tree Shaking of webpack-dev-server 2.x.
+- improve developer experience with webpack-dev-server 3.x (Code Splitting, Caching, HMR, Tree Shaking, Scope Hoisting, etc.).
 - stop repeating the hustle of creating a fiddle of CSA instance when I'm doing support for the guys who are still using the toolkit (yes, **you**! :yum:).
 
 *~~Unfortunately there are some package dependencies which are only available in Bower, including [the toolkit](https://bower.io/search/?q=cumulocity-clients-javascript) itself. So, I cannot migrate 'em all completely to npm. :disappointed:~~
@@ -24,20 +24,22 @@ I would like to enhance [the current boilerplate](https://bitbucket.org/m2m/cumu
 ## Usage
 - Install Node.js and npm from its [website](https://nodejs.org), or even better: use [nvm](https://github.com/creationix/nvm).
 
+- Install [yarn](https://yarnpkg.com/en/docs/install).
+
 - Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
-$ npm run install:clean
+$ yarn install:clean
 ```
 
 * For development, start webpack development server with hot reloading capability:
 ```bash
-$ npm start
+$ yarn start
 ```
 You'll find the CSA instansce running on https://localhost:8080.
 
 * For production, build frontend static assets:
 ```bash
-$ npm run build
+$ yarn build
 ```
 Simply drop all files under `assets` directory to your production server.
 

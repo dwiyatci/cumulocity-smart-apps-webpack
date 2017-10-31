@@ -2,7 +2,7 @@
  * Created by glenn on 07.05.17.
  */
 
-/* global _:true */
+/* global _ */
 
 const chartsComponent = {
   template: `
@@ -22,13 +22,13 @@ const chartsComponent = {
           <div class="col-md-6">
             <div class="panel c8y p-a-2">
               <h2>Radial Gauge</h2>
-              <c8y-radial-gauge dp="vm.datapoint" measurement="vm.measurement" />
+              <c8y-radial-gauge dp="vm.datapoint" measurement="vm.measurement"></c8y-radial-gauge>
             </div>
           </div>
           <div class="col-md-6">
             <div class="panel c8y p-a-2">
               <h2>Linear Gauge</h2>
-              <c8y-linear-gauge dp="vm.datapoint" measurement="vm.measurement" />
+              <c8y-linear-gauge dp="vm.datapoint" measurement="vm.measurement"></c8y-linear-gauge>
             </div>
           </div>
         </div>
@@ -69,12 +69,12 @@ const chartsComponent = {
             </label>
           </div>
         </form>
-        <csa-datapoint value="vm.datapoint" measurement="vm.measurement" />
+        <csa-datapoint value="vm.datapoint" measurement="vm.measurement"></csa-datapoint>
       </div>
     </div>
   `,
-  controller: Controller,
   controllerAs: 'vm',
+  controller: Controller,
 };
 
 /* @ngInject */

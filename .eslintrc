@@ -4,8 +4,7 @@ env:
   browser: true
   node: true
   es6: true
-extends:
-- airbnb
+extends: airbnb-base
 rules:
   no-use-before-define:
   - error

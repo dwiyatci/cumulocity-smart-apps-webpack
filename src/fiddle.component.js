@@ -14,9 +14,7 @@ const fiddleComponent = {
 };
 
 /* @ngInject */
-function Controller(
-  c8ySystem,
-) {
+function Controller(c8ySystem) {
   const vm = this;
 
   ((async () => (vm.uiVersion = await c8ySystem.getUIVersion()))());

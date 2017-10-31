@@ -2,7 +2,7 @@
  * Created by glenn on 05.08.16.
  */
 
-/* global angular:true */
+/* global angular */
 
 import configure from './app.config';
 import configureRoute from './app.route';

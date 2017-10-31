@@ -2,7 +2,7 @@
  * Created by glenn on 07.05.17.
  */
 
-/* global _:true */
+/* global _ */
 
 const alarmsComponent = {
   template: `
@@ -25,8 +25,8 @@ const alarmsComponent = {
   bindings: {
     filter: '<',
   },
-  controller: Controller,
   controllerAs: 'vm',
+  controller: Controller,
 };
 
 /* @ngInject */

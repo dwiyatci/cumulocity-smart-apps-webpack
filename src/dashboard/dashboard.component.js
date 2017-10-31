@@ -2,7 +2,7 @@
  * Created by glenn on 07.05.17.
  */
 
-/* global _:true */
+/* global _ */
 
 import './dashboard.css';
 
@@ -47,8 +47,8 @@ const dashboardComponent = {
             </ul>
           </div>
           <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <csa-section ng-if="!!vm.currentSection" name="{{vm.currentSection}}" />
-            <csa-charts ng-if="!vm.currentSection" />
+            <csa-section ng-if="!!vm.currentSection" name="{{vm.currentSection}}"></csa-section>
+            <csa-charts ng-if="!vm.currentSection"></csa-charts>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ function Controller(
   const vm = this;
 
   _.assign(vm, {
-    $onInit: onInit,
+    $onInit,
     isCollapsed: true,
     sections: ['alarms', 'devices', 'events'],
     currentSection: $routeParams.section,
@@ -78,10 +78,10 @@ function Controller(
 
   ////////////
 
-  function onInit() {
+  function $onInit() {
     $rootScope.$on(
       'authStateChange',
-      (e, { hasAuth }) => ($rootScope.loggedIn = hasAuth),
+      (e, { hasAuth }) => { $rootScope.loggedIn = hasAuth; },
     );
 
     c8yAuth.initializing.then(async () => {

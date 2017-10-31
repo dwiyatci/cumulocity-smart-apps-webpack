@@ -2,15 +2,15 @@
  * Created by glenn on 07.05.17.
  */
 
-/* global _:true */
+/* global _ */
 
 const sectionComponent = {
   template: `
     <div class="csa-section">
       <div ng-switch="vm.name">
-        <csa-alarms ng-switch-when="alarms" filter="vm.filter" />
-        <csa-devices ng-switch-when="devices" filter="vm.filter" />
-        <csa-events ng-switch-when="events" on-refresh="vm.refresh()" />
+        <csa-alarms ng-switch-when="alarms" filter="vm.filter"></csa-alarms>
+        <csa-devices ng-switch-when="devices" filter="vm.filter"></csa-devices>
+        <csa-events ng-switch-when="events" on-refresh="vm.refresh()"></csa-events>
       </div>
       <p class="text-warning m-t-2">
         Page size is {{vm.filter.pageSize}} by default. See <code>pageSize</code> filter.
@@ -35,14 +35,12 @@ const sectionComponent = {
   bindings: {
     name: '@',
   },
-  controller: Controller,
   controllerAs: 'vm',
+  controller: Controller,
 };
 
 /* @ngInject */
-function Controller(
-  $scope,
-) {
+function Controller($scope) {
   const vm = this;
 
   // `c8y-repeat` attaches its magic to `$scope.filter` and `$scope.refresh`. #legacy

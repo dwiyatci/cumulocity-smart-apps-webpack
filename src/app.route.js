@@ -3,13 +3,11 @@
  */
 
 /* @ngInject */
-function configureRoute(
-  $routeProvider,
-) {
+function configureRoute($routeProvider) {
   $routeProvider
-    .when('/login', { template: '<csa-login />' })
-    .when('/fiddle', { template: '<csa-fiddle />' })
-    .when('/:section?', { template: '<csa-dashboard />' });
+    .when('/login', { template: '<csa-login></csa-login>' })
+    .when('/fiddle', { template: '<csa-fiddle></csa-fiddle>' })
+    .when('/:section?', { template: '<csa-dashboard></csa-dashboard>' });
 }
 
 export default configureRoute;
