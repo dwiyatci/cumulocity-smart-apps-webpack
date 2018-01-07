@@ -57,12 +57,6 @@ const config = {
             // https://webpack.js.org/loaders/babel-loader
             loader: 'babel-loader',
             options: {
-              presets: ['env'],
-              plugins: [
-                'transform-runtime',
-                'babel-plugin-transform-object-rest-spread',
-                'angularjs-annotate',
-              ],
               cacheDirectory: true,
             },
           },
@@ -116,7 +110,6 @@ const config = {
     ...ifProd(
       [
         // Building for Production
-        // new webpack.LoaderOptionsPlugin({ minimize: true }), - not needed anymore?
         new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
       ],
       [
