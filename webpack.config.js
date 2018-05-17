@@ -1,6 +1,6 @@
 /**
  * Created by glenn on 07.05.17.
- * Last updated on 31.10.17.
+ * Last updated on 17.05.18.
  */
 
 const { resolve } = require('path');
@@ -34,7 +34,7 @@ const config = {
   output: {
     filename: ifProd('[name].[chunkhash].js', '[name].js'),
     path: resolve(__dirname, 'assets'),
-    publicPath: '/',
+    publicPath: '',
   },
   module: {
     rules: [
