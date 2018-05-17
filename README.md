@@ -43,6 +43,11 @@ $ yarn build
 ```
 Simply drop all files under `assets` directory to your production server.
 
+### Deploying to a Cumulocity tenant
+- Build the assets: `yarn build`.
+- Zip all files under `assets` directory (:warning: not the directory itself!) and name the ZIP file as "smartapps" or whatever you want to call the app.
+- Go to Administration → Own applications → Add application → Upload ZIP file, then drop the app ZIP file from the previous step.
+
 ## Author
 Glenn Dwiyatcita ([@dwiyatci](http://tiny.cc/dwiyatci))
 
