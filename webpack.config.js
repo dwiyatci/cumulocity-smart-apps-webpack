@@ -5,43 +5,34 @@
 
 const { resolve } = require('path');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-// const config = {
-//   entry: {
-//     app: './src/app.js',
-//     vendor: [
-//       /**
-//        * Cumulocity UI core SDK (8.x).
-//        */
-//       'cumulocity-clients-javascript/build/main-standalone.js',
-//
-//       /**
-//        * Other vendor dependencies for this amazing project.
-//        */
-//       'bootstrap-loader',
-//       'angular-route',
-//       'angular-ui-bootstrap/dist/ui-bootstrap.js',
-//       'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
-//     ],
-//     polyfills: [
-//       'babel-polyfill',
-//     ],
-//   },
-//   resolve: {
-//     modules: [
-//       'node_modules',
-//       resolve(__dirname, 'src'),
-//     ],
-//   },
-// };
 
 module.exports = (env) => {
   const config = {
     mode: eitherDevOrProd('development', 'production'),
     entry: './src/app.js',
+    // entry: {
+    //   app: './src/app.js',
+    //   vendor: [
+    //     /**
+    //      * Cumulocity UI core SDK (8.x).
+    //      */
+    //     'cumulocity-clients-javascript/build/main-standalone.js',
+    //
+    //     /**
+    //      * Other vendor dependencies for this amazing project.
+    //      */
+    //     'bootstrap-loader',
+    //     'angular-route',
+    //     'angular-ui-bootstrap/dist/ui-bootstrap.js',
+    //     'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+    //   ],
+    //   polyfills: [
+    //     'babel-polyfill',
+    //   ],
+    // },
     output: {
       filename: eitherDevOrProd('[name].js', '[name].[chunkhash].js'),
       path: resolve(__dirname, 'assets'),
@@ -80,14 +71,14 @@ module.exports = (env) => {
         {
           test: /\.css$/,
           // use: ['style-loader', 'css-loader'],
-          use: ExtractTextPlugin.extract({
-            use: 'css-loader',
-            fallback: 'style-loader',
-          }),
-          // use: [
-          //   MiniCssExtractPlugin.loader,
-          //   'css-loader',
-          // ],
+          // use: ExtractTextPlugin.extract({
+          //   use: 'css-loader',
+          //   fallback: 'style-loader',
+          // }),
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+          ],
         },
         {
           test: /\.html$/,
@@ -109,10 +100,10 @@ module.exports = (env) => {
     },
     plugins: [
       // Code Splitting - CSS
-      new ExtractTextPlugin(eitherDevOrProd('[name].css', '[name].[chunkhash].css')),
-      // new MiniCssExtractPlugin({
-      //   filename: eitherDevOrProd('[name].css', '[name].[chunkhash].css'),
-      // }),
+      // new ExtractTextPlugin(eitherDevOrProd('[name].css', '[name].[chunkhash].css')),
+      new MiniCssExtractPlugin({
+        filename: eitherDevOrProd('[name].css', '[name].[chunkhash].css'),
+      }),
 
       // Caching
       new HtmlWebpackPlugin({ template: './src/index.ejs' }),

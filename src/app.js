@@ -11,6 +11,7 @@ import 'babel-polyfill';
  */
 import 'cumulocity-clients-javascript/build/main-standalone';
 
+/* eslint-disable import/no-extraneous-dependencies */
 /**
  * Other vendor dependencies for this amazing project.
  */

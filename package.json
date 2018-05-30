@@ -23,14 +23,14 @@
   "scripts": {
     "install:clean": "yarn upgrade || yarn install",
     "update": "yarn upgrade-interactive --latest",
-    "start": "webpack-dev-server",
-    "webpack": "yarn clean && webpack",
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "webpack": "yarn clean && cross-env NODE_ENV=development webpack",
     "build": "yarn clean && cross-env NODE_ENV=production webpack",
     "clean": "rimraf assets",
     "lint": "eslint --cache src"
   },
   "dependencies": {
-    "angular-route": "1.7.0",
+    "angular-route": "1.5.11",
     "angular-ui-bootstrap": "2.5.6",
     "babel-polyfill": "6.26.0",
     "babel-runtime": "6.26.0",
@@ -41,12 +41,12 @@
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
     "babel-loader": "7.1.4",
-    "babel-plugin-angularjs-annotate": "0.8.2",
+    "babel-plugin-angularjs-annotate": "0.9.0",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.7.0",
-    "bootstrap-loader": "2.2.0",
-    "cross-env": "5.1.5",
+    "bootstrap-loader": "3.0.0",
+    "cross-env": "5.1.6",
     "css-loader": "0.28.11",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
@@ -67,8 +67,8 @@
     "script-loader": "0.7.2",
     "style-loader": "0.21.0",
     "url-loader": "1.0.1",
-    "webpack": "4.8.3",
-    "webpack-cli": "2.1.3",
+    "webpack": "4.10.1",
+    "webpack-cli": "2.1.4",
     "webpack-dev-server": "3.1.4"
   }
 }
