@@ -78,9 +78,9 @@ const datapointComponent = {
     </div>
   `,
   bindings: {
-    value: '<',
+    value: '<'
   },
-  controllerAs: 'vm',
+  controllerAs: 'vm'
 };
 
 export default datapointComponent;

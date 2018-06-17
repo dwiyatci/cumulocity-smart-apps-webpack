@@ -27,7 +27,8 @@
     "webpack": "yarn clean && cross-env NODE_ENV=development webpack",
     "build": "yarn clean && cross-env NODE_ENV=production webpack",
     "clean": "rimraf assets",
-    "lint": "eslint --cache src"
+    "lint": "eslint --cache src",
+    "prettier": "prettier --write"
   },
   "dependencies": {
     "angular-route": "1.5.11",
@@ -46,10 +47,11 @@
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.7.0",
     "bootstrap-loader": "3.0.0",
-    "cross-env": "5.1.6",
+    "cross-env": "5.2.0",
     "css-loader": "0.28.11",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
+    "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.12.0",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",
@@ -61,14 +63,15 @@
     "mini-css-extract-plugin": "0.4.0",
     "ng-annotate-loader": "0.6.1",
     "node-sass": "4.9.0",
+    "prettier": "1.13.5",
     "resolve-url-loader": "2.3.0",
     "rimraf": "2.6.2",
-    "sass-loader": "7.0.1",
+    "sass-loader": "7.0.3",
     "script-loader": "0.7.2",
     "style-loader": "0.21.0",
     "url-loader": "1.0.1",
-    "webpack": "4.10.1",
-    "webpack-cli": "2.1.4",
+    "webpack": "4.12.0",
+    "webpack-cli": "3.0.8",
     "webpack-dev-server": "3.1.4"
   }
 }

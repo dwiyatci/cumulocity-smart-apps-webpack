@@ -23,10 +23,10 @@ const alarmsComponent = {
     </div>
   `,
   bindings: {
-    filter: '<',
+    filter: '<'
   },
   controllerAs: 'vm',
-  controller: Controller,
+  controller: Controller
 };
 
 /* @ngInject */
@@ -40,14 +40,14 @@ function Controller() {
       { name: 'Critical', value: 'CRITICAL', buttonClass: 'btn-danger' },
       { name: 'Major', value: 'MAJOR', buttonClass: 'btn-warning' },
       { name: 'Minor', value: 'MINOR', buttonClass: 'btn-primary' },
-      { name: 'Warning', value: 'WARNING', buttonClass: 'btn-info' },
-    ],
+      { name: 'Warning', value: 'WARNING', buttonClass: 'btn-info' }
+    ]
   });
 
   ////////////
 
   function onClick(filter, { value }) {
-    filter.severity = (value !== filter.severity) ? value : undefined;
+    filter.severity = value !== filter.severity ? value : undefined;
   }
 
   function isActive({ severity }, { value }) {

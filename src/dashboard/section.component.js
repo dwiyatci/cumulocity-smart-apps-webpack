@@ -33,10 +33,10 @@ const sectionComponent = {
     </div>
   `,
   bindings: {
-    name: '@',
+    name: '@'
   },
   controllerAs: 'vm',
-  controller: Controller,
+  controller: Controller
 };
 
 /* @ngInject */
@@ -46,7 +46,7 @@ function Controller($scope) {
   // `c8y-repeat` attaches its magic to `$scope.filter` and `$scope.refresh`. #legacy
   _.assign(vm, {
     filter: _.defaults($scope.filter, { pageSize: 10 }),
-    refresh: $scope.refresh || _.noop,
+    refresh: $scope.refresh || _.noop
   });
 }
 

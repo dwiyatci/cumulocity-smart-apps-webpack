@@ -55,17 +55,11 @@ const dashboardComponent = {
     </div>
   `,
   controller: Controller,
-  controllerAs: 'vm',
+  controllerAs: 'vm'
 };
 
 /* @ngInject */
-function Controller(
-  $routeParams,
-  $rootScope,
-  $location,
-  c8yAuth,
-  c8yUser,
-) {
+function Controller($routeParams, $rootScope, $location, c8yAuth, c8yUser) {
   const vm = this;
 
   _.assign(vm, {
@@ -73,16 +67,15 @@ function Controller(
     isCollapsed: true,
     sections: ['alarms', 'devices', 'events'],
     currentSection: $routeParams.section,
-    logout: redirectToLogin,
+    logout: redirectToLogin
   });
 
   ////////////
 
   function $onInit() {
-    $rootScope.$on(
-      'authStateChange',
-      (e, { hasAuth }) => { $rootScope.loggedIn = hasAuth; },
-    );
+    $rootScope.$on('authStateChange', (e, { hasAuth }) => {
+      $rootScope.loggedIn = hasAuth;
+    });
 
     c8yAuth.initializing.then(async () => {
       if ($rootScope.loggedIn) {

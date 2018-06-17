@@ -11,9 +11,9 @@ const eventsComponent = {
     </div>
   `,
   bindings: {
-    onRefresh: '&',
+    onRefresh: '&'
   },
-  controllerAs: 'vm',
+  controllerAs: 'vm'
 };
 
 export default eventsComponent;

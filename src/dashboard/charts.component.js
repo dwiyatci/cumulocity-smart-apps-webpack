@@ -74,14 +74,11 @@ const chartsComponent = {
     </div>
   `,
   controllerAs: 'vm',
-  controller: Controller,
+  controller: Controller
 };
 
 /* @ngInject */
-function Controller(
-  c8yBase,
-  c8yMeasurements,
-) {
+function Controller(c8yBase, c8yMeasurements) {
   const vm = this;
 
   _.assign(vm, {
@@ -96,9 +93,9 @@ function Controller(
       yellowRangeMin: 75,
       yellowRangeMax: 90,
       redRangeMin: 90,
-      redRangeMax: 100,
+      redRangeMax: 100
     },
-    measurement: { value: 0 },
+    measurement: { value: 0 }
   });
 
   ////////////
@@ -107,13 +104,15 @@ function Controller(
     const { source, fragmentType, series } = vm;
 
     if (source && fragmentType && series) {
-      const data = await c8yMeasurements.list(c8yBase.timeOrderFilter({
-        source,
-        fragmentType,
-        revert: true,
-        reverse: true,
-        pageSize: 1,
-      }));
+      const data = await c8yMeasurements.list(
+        c8yBase.timeOrderFilter({
+          source,
+          fragmentType,
+          revert: true,
+          reverse: true,
+          pageSize: 1
+        })
+      );
 
       onMeasurement(fragmentType, series, data);
     }

@@ -1,6 +1,6 @@
 /**
  * Created by glenn on 07.05.17.
- * Last updated on 17.05.18.
+ * Last updated on 17.06.18.
  */
 
 const { resolve } = require('path');
@@ -9,7 +9,7 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = (env) => {
+module.exports = env => {
   const config = {
     mode: eitherDevOrProd('development', 'production'),
     entry: './src/app.js',
@@ -36,37 +36,35 @@ module.exports = (env) => {
     output: {
       filename: eitherDevOrProd('[name].js', '[name].[chunkhash].js'),
       path: resolve(__dirname, 'assets'),
-      publicPath: '/',
+      publicPath: '/'
     },
     module: {
       rules: [
         {
           test: /cumulocity-clients-javascript/,
-          use: 'script-loader',
+          use: 'script-loader'
         },
         // Bootstrap 3
         {
           test: /bootstrap-sass\/assets\/javascripts\//,
-          use: 'imports-loader?jQuery=>window.jQuery',
+          use: 'imports-loader?jQuery=>window.jQuery'
         },
         {
           test: /\.js$/,
-          include: [
-            resolve(__dirname, 'src'),
-          ],
+          include: [resolve(__dirname, 'src')],
           use: [
             {
               // https://webpack.js.org/loaders/babel-loader
               loader: 'babel-loader',
               options: {
-                cacheDirectory: true,
-              },
-            },
-          ],
+                cacheDirectory: true
+              }
+            }
+          ]
         },
         {
           test: /\.json$/,
-          type: 'json',
+          type: 'json'
         },
         {
           test: /\.css$/,
@@ -75,65 +73,59 @@ module.exports = (env) => {
           //   use: 'css-loader',
           //   fallback: 'style-loader',
           // }),
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-          ],
+          use: [MiniCssExtractPlugin.loader, 'css-loader']
         },
         {
           test: /\.html$/,
-          use: 'html-loader',
+          use: 'html-loader'
         },
         {
           test: /\.(png|jpg|gif)$/,
-          use: 'url-loader?limit=8192',
+          use: 'url-loader?limit=8192'
         },
         {
           test: /\.(woff2?|svg)$/,
-          use: 'url-loader?limit=10000',
+          use: 'url-loader?limit=10000'
         },
         {
           test: /\.(ttf|eot)$/,
-          use: 'file-loader',
-        },
-      ],
+          use: 'file-loader'
+        }
+      ]
     },
     plugins: [
       // Code Splitting - CSS
       // new ExtractTextPlugin(eitherDevOrProd('[name].css', '[name].[chunkhash].css')),
       new MiniCssExtractPlugin({
-        filename: eitherDevOrProd('[name].css', '[name].[chunkhash].css'),
+        filename: eitherDevOrProd('[name].css', '[name].[chunkhash].css')
       }),
 
       // Caching
-      new HtmlWebpackPlugin({ template: './src/index.ejs' }),
+      new HtmlWebpackPlugin({ template: './src/index.ejs' })
     ],
     optimization: {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
-        chunks: 'all',
+        chunks: 'all'
         // name: false,
       },
-      runtimeChunk: true,
+      runtimeChunk: true
     },
     resolve: {
-      modules: [
-        resolve(__dirname, 'src'),
-        'node_modules',
-      ],
+      modules: [resolve(__dirname, 'src'), 'node_modules']
     },
     devServer: {
       contentBase: resolve(__dirname, 'assets'),
       compress: true,
       noInfo: false,
       historyApiFallback: true,
-      https: true,
-    },
+      https: true
+    }
   };
 
   return config;
 
   function eitherDevOrProd(devStuff, prodStuff) {
-    return (env && env.production) ? prodStuff : devStuff;
+    return env && env.production ? prodStuff : devStuff;
   }
 };

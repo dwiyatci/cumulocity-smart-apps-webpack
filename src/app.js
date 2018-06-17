@@ -23,7 +23,4 @@ import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls';
 import './app.css';
 import appModule from './app.module';
 
-angular.bootstrap(
-  document.querySelector('#app'),
-  [appModule.name],
-);
+angular.bootstrap(document.querySelector('#app'), [appModule.name]);

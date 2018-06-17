@@ -35,7 +35,7 @@ const loginComponent = {
     </div>
   `,
   controller: Controller,
-  controllerAs: 'vm',
+  controllerAs: 'vm'
 };
 
 /* @ngInject */
@@ -44,7 +44,7 @@ function Controller($rootScope) {
 
   _.assign(vm, {
     $onInit,
-    redirectToDashboard,
+    redirectToDashboard
   });
 
   function $onInit() {

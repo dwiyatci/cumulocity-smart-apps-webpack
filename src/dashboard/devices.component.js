@@ -16,9 +16,9 @@ const devicesComponent = {
     </div>
   `,
   bindings: {
-    filter: '<',
+    filter: '<'
   },
-  controllerAs: 'vm',
+  controllerAs: 'vm'
 };
 
 export default devicesComponent;

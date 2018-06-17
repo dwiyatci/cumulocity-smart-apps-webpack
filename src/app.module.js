@@ -24,7 +24,7 @@ export default angular
 
     // Feature areas.
     loginModule.name,
-    dashboardModule.name,
+    dashboardModule.name
   ])
   .config(configure)
   .config(configureRoute)
